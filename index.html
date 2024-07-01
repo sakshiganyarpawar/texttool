@@ -74,24 +74,7 @@
       font-family:cursive ;
       color:rgb(9, 9, 113); 
     }
-    .reset-btn{
-      width: 35px; 
-      height: 35px;
-      border: 3px solid rgb(10, 10, 112);
-      margin-top: 1px;
-      margin-left:500px;
-     background-color: rgb(150, 199, 215);
-     box-shadow: 1px 2px 6px 1px rgb(32, 32, 105) ;
-     cursor: pointer;
-    }
-    .resetimg{
-      width: 20px;
-      
-    }
     @media screen and (max-width: 500px) {
-      .reset-btn{
-        margin-left:280px ;
-      }
       .container {
           height: 500px;
           width: 350px;
@@ -135,9 +118,6 @@
           width: 420px;
           margin: 10px;
         }
-        .reset-btn{
-        margin-left:340px ;
-      }
         .texts-container {
           flex-direction: row;
           padding-top: 10px;
@@ -159,7 +139,6 @@
 <body>
   <div class="container">
   <h1 class="title"> Text Tool </h1> 
-  <button class="reset-btn" onclick="giveActionResult('reset')"><img src="reset.png"  class="resetimg"/></button>
   <p class="text"> Enter Text:</p> 
   <input type="text" class="textbox" id="input-text"/>
   <p id="result-text" class="result-text"></p>
@@ -188,15 +167,19 @@
             case 'charcount':
             resultTarget.innerText =`Total Character: ${inputVal.length}`
             break;
-            case 'reset':
-              resultTarget.innerText= " ";
-              inputElement.value=" ";
-              break;
             default:
               resultTarget.innerText =`Total Word:${inputVal.split(" ").length}`
               break;
-         }
-        }
+         }}
+           function reset(){
+            const inputElement=document.getElementById("input-text")
+            const resultElement=document.getElementById("result-text")
+
+            const resultTarget=resultElement
+              resultTarget.innerText= " ";
+              inputElement.value=" ";
+           }
+        
   </script>
 </body>
 </html>
