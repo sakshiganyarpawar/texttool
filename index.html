@@ -14,7 +14,31 @@
     <button class="action-btn" onclick="giveActionResult('uppercase')">UPPERCASE</button>
     <button class="action-btn" onclick="giveActionResult('lowercase')">lowercase</button>
     <button class="action-btn" onclick="giveActionResult('charcount')">Character-Count</button>
-    <button class="action-btn" onclick="giveActionResult('uppercase')">Word</button>
+    <button class="action-btn" onclick="giveActionResult('wordcount')" >Word Count</button>
   </div>
+  <script>
+    function giveActionResult(action){
+         const inputElement=document.getElementById("input-text")
+         const resultElement=document.getElementById("result-text")
+
+         const inputVal=inputElement.value 
+         const resultTarget=resultElement
+
+         switch(action){
+          case 'uppercase':
+            resultTarget.innerText =inputVal.toUpperCase()
+            break;
+            case 'lowercase':
+            resultTarget.innerText =inputVal.toLowerCase()
+            break;
+            case 'charcount':
+            resultTarget.innerText =`Total Character: ${inputVal.length}`
+            break;
+            default:
+              resultTarget.innerText =`Total Words:${inputVal.split(" ").length}`
+              break;
+         }
+        }
+  </script>
 </body>
 </html>
